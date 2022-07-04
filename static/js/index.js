@@ -23,7 +23,7 @@ window.onload = function(){
       document.getElementsByClassName('no-data')[0].style.display = 'block'
       oResultBox.style.display = 'none'
       hasData = false
-      axios.get(baseUrl + '/projectList', { params: { pageSize: 400, pageIndex: 1, projectName: ''}}).then(res=>{
+      axios.get(baseUrl + '/projectList', { params: { pageSize: 400, pageIndex: 1, projectName: '', keyWord: key}}).then(res=>{
         res.data.data.Data.ProjectList.forEach(item => {
           if (item.DisplayName.indexOf('screen')!=-1){
             getDepot(item.Id, item.DisplayName)
