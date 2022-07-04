@@ -54,14 +54,14 @@ window.onload = function(){
   // 查仓库
   function getDepot(projectId, projectName){
     axios.get(baseUrl + '/getDepotInfo', { params: { projectId: projectId } }).then(res => {
-      res.data.data.DepotData.Depots.forEach(item => getBranchs(projectName, item.Name, item.Id))
+      res.data.data.DepotData.Depots.forEach(item => getBranchs(projectName, item.Name, item.Id, item.SshUrl, item.HttpsUrl))
     }).catch(e => {
       // alert(e)
     })
   }
 
   // 查仓库分支
-  function getBranchs(projectName, depotName, depotId){
+  function getBranchs(projectName, depotName, depotId, ssh, https){
     axios.get(baseUrl + '/getBranchInfo', { params: { depotId: depotId, keyWord: key, pageIndex: 1, pageSize: 200} }).then(res => {
       if (res.data.data.Branches.length!=0){
         hasData = true
@@ -71,6 +71,8 @@ window.onload = function(){
               <div>项目名：<span>${projectName}</span></div>
               <div>仓库名：<span>${depotName}</span></div>
               <div>分支名：<span>${item.BranchName.replaceAll(key, `<span class="key-color">${key}</span>`)}</span></div>
+              <div>HTTPS：<span>${https}</span></div>
+              <div>SSH：<span>${ssh}</span></div>
             </div>
           `)
         })
