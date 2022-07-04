@@ -6,6 +6,7 @@ window.onload = function(){
   var oLoadValue = document.getElementsByClassName('load-text')[0]
   var oResultBox = document.getElementsByClassName('result-box')[0]
   const baseUrl = 'http://api.wghuang.fun/tool/project'
+  // const baseUrl = 'http://localhost:2022/tool/project'
   let key = null
   let loadVal = 0
   let timer = null
@@ -22,10 +23,14 @@ window.onload = function(){
       document.getElementsByClassName('no-data')[0].style.display = 'block'
       oResultBox.style.display = 'none'
       hasData = false
-      axios.get(baseUrl + '/projectList', { params: { pageSize: 100, pageIndex: 1, projectName: ''}}).then(res=>{
-        res.data.data.Data.ProjectList.forEach(item => getDepot(item.Id, item.DisplayName))
+      axios.get(baseUrl + '/projectList', { params: { pageSize: 400, pageIndex: 1, projectName: ''}}).then(res=>{
+        res.data.data.Data.ProjectList.forEach(item => {
+          if (item.DisplayName.indexOf('screen')!=-1){
+            getDepot(item.Id, item.DisplayName)
+          }
+        })
       }).catch(e=>{
-        alert(e)
+        // alert(e)
       })
       loadVal = 0
       oLoadBox.style.display = 'flex'
@@ -51,7 +56,7 @@ window.onload = function(){
     axios.get(baseUrl + '/getDepotInfo', { params: { projectId: projectId } }).then(res => {
       res.data.data.DepotData.Depots.forEach(item => getBranchs(projectName, item.Name, item.Id))
     }).catch(e => {
-      alert(e)
+      // alert(e)
     })
   }
 
@@ -71,7 +76,7 @@ window.onload = function(){
         })
       }
     }).catch(e => {
-      alert(e)
+      // alert(e)
     })
   }
 
