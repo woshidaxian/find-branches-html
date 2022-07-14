@@ -8,24 +8,35 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.min.js"></script>
   <script src="./static/settings.js"></script>
-  <script src="./static/js/index.js"></script>
+  <!-- <script src="./static/js/index.js"></script> -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.0/vue.min.js"></script>
+  <script src="./static/js/index-vue.js"></script>
 </head>
 <body>
-  <div class="search-box">
+  <div class="search-box" id="app">
     <div class="content">
       <img src="./static/image/warehouse_search.png" alt="" style="width: 40px;margin-left: 20px;">
-      <input type="text" id="inp-search" placeholder="输入关键词查找">
-      <div class="btn"> 搜索 </div>
+      <input type="text" id="inp-search" placeholder="输入关键词查找" v-model="keyWord">
+      <div class="btn" @click="search"> 搜索 </div>
     </div>
-    <div class="load-box">
+    <div class="load-box" v-show="isLoading">
       <div class="load-wai">
-        <div class="load-nei"></div>
+        <div class="load-nei" :style="`width: ${now/all*100}%`"></div>
       </div>
-      <div class="load-text"></div>
+      <div class="load-text">{{all?Math.round(now/all*100):0}}%</div>
     </div>
-    <div class="result-box">
-      <div class="no-data">暂无结果</div>
+    <div class="result-box" v-show="isEnd">
+      <div class="result-line" v-for="(item, index) in tableData" :key="index" :style="`--delay: ${index*0.5}s`">
+        <div>项目名：<span>{{item.projectName}}</span></div>
+        <div>仓库名：<span>{{item.depotName}}</span></div>
+        <div>分支名：<span v-html="item.BranchName"></span>
+        </div>
+        <div>HTTPS：<span>{{item.httpsUrl}}</span></div>
+        <div>SSH：<span>{{item.sshUrl}}</span></div>
+      </div>
+      <div class="no-data" v-if="tableData.length==0">暂无结果</div>
     </div>
   </div>
+  <div class="error-box"></div>
 </body>
 </html>
