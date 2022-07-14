@@ -29,6 +29,13 @@
   animation: fadeBottomIn forwards 1s var(--delay);
   opacity: 0;
 }
+.copy-img{
+  cursor: pointer;
+  width: 20px;
+  vertical-align: middle;
+  margin-left: 10px;
+  display: inline-block;
+}
 .key-color{
   color: rgba(219, 88, 0, 0.747);
 }

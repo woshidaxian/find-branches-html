@@ -85,6 +85,27 @@ window.onload = function name(params) {
         }).catch(e => {
           // alert(e)
         })
+      },
+      copy(url){
+        var aux = document.createElement("input");
+
+        // 设置元素内容
+        aux.setAttribute("value", url);
+
+        // 将元素插入页面进行调用
+        document.body.appendChild(aux);
+
+        // 复制内容
+        aux.select();
+
+        // 将内容复制到剪贴板
+        document.execCommand("copy");
+
+        // 删除创建元素
+        document.body.removeChild(aux);
+
+        //提示
+        alert("复制内容成功");
       }
     },
   })
