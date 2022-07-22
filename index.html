@@ -16,7 +16,7 @@
   <div class="search-box" id="app">
     <div class="content">
       <img src="./static/image/warehouse_search.png" alt="" style="width: 40px;margin-left: 20px;">
-      <input type="text" id="inp-search" placeholder="输入关键词查找" v-model="keyWord">
+      <input type="text" id="inp-search" placeholder="输入关键词查找" v-model="keyWord" @keyup.enter="search">
       <div class="btn" @click="search"> 搜索 </div>
     </div>
     <div class="load-box" v-show="isLoading">
