@@ -22,11 +22,20 @@ window.onload = function name(params) {
       isEnd: false,
       all: 0,
       now: 0,
+      color1: '',
+      color2: ''
     },
     mounted() {
-
+      this.color1 = this.randomColor();
+      this.color2 = this.randomColor();
     },
     methods: {
+      randomColor(){
+        let a = Math.round(Math.random() * 255)
+        let b = Math.round(Math.random() * 255)
+        let c = Math.round(Math.random() * 255)
+        return `rgb(${a}, ${b}, ${c})`
+      },
       search(){
         this.isEnd = false
         this.all = 0

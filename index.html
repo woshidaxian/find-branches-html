@@ -14,7 +14,7 @@
 </head>
 <body>
   <div class="search-box" id="app">
-    <div class="content">
+    <div class="content" :style="`--color1: ${color1};--color2: ${color2}`">
       <img src="./static/image/warehouse_search.png" alt="" style="width: 40px;margin-left: 20px;">
       <input type="text" id="inp-search" placeholder="请输入分支名关键词查找" v-model="keyWord" @keyup.enter="search">
       <div class="btn" @click="search"> 搜索 </div>

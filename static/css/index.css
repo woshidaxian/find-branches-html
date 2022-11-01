@@ -66,6 +66,7 @@
   align-items: center;
   box-shadow: 8px 8px 20px #c4c4c4, -8px -8px 20px #fff;
   transition: all 1s;
+  border: 1px solid var(--color2);
 }
 .load-box{
   width: 38vw;
@@ -102,11 +103,15 @@
   font-size: 18px;
   margin-left: 10px;
 }
+#inp-search::placeholder{
+  font-family: 楷体;
+  font-weight: bold;
+}
 .btn{
   width: 20%;
   height: 100%;
   border-radius: 30px;
-  background: linear-gradient(to right, rgba(219, 204, 0, 0.747), rgb(219, 0, 0));
+  background: linear-gradient(to right, var(--color1), var(--color2));
   text-align: center;
   line-height: 60px;
   color: #fff;
@@ -115,6 +120,9 @@
   letter-spacing: 10px;
   text-indent: 10px;
   cursor: pointer;
+  position: relative;
+  right: -2px;
+  transition: all 1s;
 }
 .error-box{
   width: 300px;
