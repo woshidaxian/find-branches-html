@@ -79,8 +79,10 @@ window.onload = function name(params) {
             })
           }
           if(this.now == this.all){
-            this.isLoading = false
-            this.isEnd = true;
+            setTimeout(() => {
+              this.isLoading = false
+              this.isEnd = true;
+            }, 500);
           }
         }).catch(e => {
           // alert(e)

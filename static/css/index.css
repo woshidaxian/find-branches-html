@@ -14,20 +14,27 @@
 .result-box{
   width: 42vw;
   height: 60vh;
-  margin-top: 30px;
   overflow: auto;
+}
+.all-data{
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 18px;
+  width: 42vw;
 }
 .result-box::-webkit-scrollbar{
   width: 0;
 }
 .result-line{
   padding: 20px 0;
+  padding-top: 0;
   border-bottom: 1px dashed rgb(175, 175, 175);
   font-size: 18px;
   font-weight: bold;
   font-family: 黑体;
   animation: fadeBottomIn forwards 1s var(--delay);
   opacity: 0;
+  margin-bottom: 20px;
 }
 .copy-img{
   cursor: pointer;
@@ -38,6 +45,14 @@
 }
 .key-color{
   color: rgba(219, 88, 0, 0.747);
+}
+.video{
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: -84px;
+  left: 0;
+  transition: all .4s;
 }
 .content{
   width: 45vw;
@@ -50,11 +65,11 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 8px 8px 20px #c4c4c4, -8px -8px 20px #fff;
-  animation: all 1s;
+  transition: all 1s;
 }
 .load-box{
   width: 38vw;
-  margin-top: 80px;
+  margin-top: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -66,6 +81,7 @@
   height: 6px;
   border-radius: 3px;
   background: rgb(230, 230, 230);
+  position: relative;
 }
 .load-text{
   font-size: 18px;
@@ -77,6 +93,7 @@
   height: 100%;
   border-radius: 3px;
   background: rgb(0, 162, 255);
+  transition: all .4s;
 }
 #inp-search{
   flex: 1;
@@ -89,7 +106,7 @@
   width: 20%;
   height: 100%;
   border-radius: 30px;
-  background: rgba(219, 88, 0, 0.747);
+  background: linear-gradient(to right, rgba(219, 204, 0, 0.747), rgb(219, 0, 0));
   text-align: center;
   line-height: 60px;
   color: #fff;
