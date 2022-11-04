@@ -23,11 +23,17 @@ window.onload = function name(params) {
       all: 0,
       now: 0,
       color1: '',
-      color2: ''
+      color2: '',
+      color3: ''
     },
     mounted() {
       this.color1 = this.randomColor();
       this.color2 = this.randomColor();
+      let c3 = this.randomColor().split('(')
+      c3 = c3[0] + 'a(' + c3[1]
+      c3 = c3.split(')')
+      c3 = c3[0] + ',0.3)' + c3[1]
+      this.color3 = c3
     },
     methods: {
       randomColor(){

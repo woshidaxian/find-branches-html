@@ -55,7 +55,7 @@
   transition: all .4s;
 }
 .content{
-  width: 45vw;
+  width: 0;
   height: 60px;
   line-height: 60px;
   /* border: 1px solid rgba(128, 128, 128, 0.438); */
@@ -66,7 +66,9 @@
   align-items: center;
   box-shadow: 8px 8px 20px #c4c4c4, -8px -8px 20px #fff;
   transition: all 1s;
-  border: 1px solid var(--color2);
+  border: 1px solid var(--color3);
+  animation: fadeWidth 1s forwards;
+  overflow: hidden;
 }
 .load-box{
   width: 38vw;
@@ -143,5 +145,15 @@
   to{
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes fadeWidth {
+  from{
+    width: 0vw;
+    opacity: 0;
+  }
+  to{
+    width: 45vw;
+    opacity: 1;
   }
 }
