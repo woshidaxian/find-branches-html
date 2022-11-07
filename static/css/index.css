@@ -25,6 +25,12 @@
 .result-box::-webkit-scrollbar{
   width: 0;
 }
+.look-detail{
+  font-size: 16px;
+  text-decoration: underline;
+  color: rgb(0, 134, 211);
+  cursor: pointer;
+}
 .result-line{
   padding: 20px 0;
   padding-top: 0;

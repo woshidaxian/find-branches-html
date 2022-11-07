@@ -123,6 +123,9 @@ window.onload = function name(params) {
 
         //提示
         alert("复制内容成功");
+      },
+      lookDetail(){
+        alert('功能即将上线，敬请期待...')
       }
     },
   })

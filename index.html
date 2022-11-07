@@ -34,6 +34,7 @@
         <div>分支名：<span v-html="item.BranchName"></span></div>
         <div>HTTPS：<span>{{item.httpsUrl}}</span><img src="./static/image/copy.png" alt="" class="copy-img" @click="copy(item.httpsUrl)"></div>
         <div>SSH：<span>{{item.sshUrl}}</span><img src="./static/image/copy.png" alt="" class="copy-img" @click="copy(item.sshUrl)"></div>
+        <div class="look-detail" @click="lookDetail()">查看最近Commit记录</div>
       </div>
       <div class="no-data" v-if="tableData.length==0">暂无结果</div>
     </div>
