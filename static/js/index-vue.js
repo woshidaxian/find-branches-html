@@ -24,7 +24,9 @@ window.onload = function name(params) {
       now: 0,
       color1: '',
       color2: '',
-      color3: ''
+      color3: '',
+      commitList: [],
+      showCommitDetail: false,
     },
     mounted() {
       this.color1 = this.randomColor();
@@ -34,6 +36,7 @@ window.onload = function name(params) {
       c3 = c3.split(')')
       c3 = c3[0] + ',0.3)' + c3[1]
       this.color3 = c3
+      // new Date().toLocaleTimeString();
     },
     methods: {
       randomColor(){
@@ -79,18 +82,11 @@ window.onload = function name(params) {
                 projectName: projectName,
                 depotName: depotName,
                 BranchName: `<span>${item.BranchName.replaceAll(this.keyWord, `<span class="key-color">${this.keyWord}</span>`)}</span>`,
+                ref: item.BranchName,
+                depotId: depotId,
                 httpsUrl: httpsUrl,
                 sshUrl: sshUrl,
               })
-              // document.getElementsByClassName('result-box')[0].appendHTML(`
-              //   <div class="result-line">
-              //     <div>项目名：<span>${projectName}</span></div>
-              //     <div>仓库名：<span>${depotName}</span></div>
-              //     <div>分支名：<span>${item.BranchName.replaceAll(this.keyWord, `<span class="key-color">${this.keyWord}</span>`)}</span></div>
-              //     <div>HTTPS：<span>${httpsUrl}</span></div>
-              //     <div>SSH：<span>${sshUrl}</span></div>
-              //   </div>
-              // `)
             })
           }
           if(this.now == this.all){
@@ -101,6 +97,14 @@ window.onload = function name(params) {
           }
         }).catch(e => {
           // alert(e)
+        })
+      },
+      lookDetail(ref, depotId){
+        axios.get(BASEURL + '/commitList', { params: { ref: ref, depotId: depotId, pageSize: 10, pageIndex: 1 } }).then(res=>{
+          if(res.data.data.Commits){
+            this.commitList = res.data.data.Commits
+            this.showCommitDetail = true
+          }
         })
       },
       copy(url){
@@ -124,9 +128,6 @@ window.onload = function name(params) {
         //提示
         alert("复制内容成功");
       },
-      lookDetail(){
-        alert('功能即将上线，敬请期待...')
-      }
     },
   })
 }
