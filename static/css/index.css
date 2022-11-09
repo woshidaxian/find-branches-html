@@ -72,7 +72,7 @@
   align-items: center;
   box-shadow: 8px 8px 20px #c4c4c4, -8px -8px 20px #fff;
   transition: all 1s;
-  border: 1px solid var(--color3);
+  /* border: 1px solid var(--color3); */
   animation: fadeWidth 1s forwards;
   overflow: hidden;
 }
@@ -148,7 +148,7 @@
   width: 50vw;
   height: 60vh;
   background: #fff;
-  border-radius: 20px;
+  border-radius: 30px;
   position: absolute;
   left: 0;
   top: 0;
@@ -181,7 +181,7 @@
   display: block;
   width: 10px;
   height: 10px;
-  background: #13c9ff;
+  background: #ffa113;
   border-radius: 50%;
   position: absolute;
   top: 2px;
@@ -192,7 +192,7 @@
   display: block;
   width: 0;
   height: 100%;
-  border: 1px dashed #048149;
+  border: 1px dashed #6161617e;
   position: absolute;
   top: 15px;
   left: 4px;
@@ -201,7 +201,6 @@
   font-weight: bold;
   font-family: 楷体;
   letter-spacing: 1px;
-  color: #13c9ff;
 }
 .detail-2{
   font-size: 14px;
