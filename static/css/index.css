@@ -227,3 +227,17 @@
     opacity: 1;
   }
 }
+.bottom-bar{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  background: rgb(248, 248, 248);
+  color: rgb(124, 124, 124);
+}
+.jump-a{
+  text-decoration: none;
+  color: rgb(0, 146, 214);
+}
