@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>搜分支</title>
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/lantern.css">
   <script src="./static/js/axios.min.js"></script>
   <script src="./static/settings.js"></script>
   <!-- <script src="./static/js/index.js"></script> -->
@@ -52,6 +53,28 @@
         </div>
       </div>
     </div>
+    <!-- 灯笼-start -->
+    <div class="lantern-box">
+      <!-- 灯笼容器 -->
+      <div class="lantern-con" v-for="(item, index) in ['新','年','快','乐']" :key="index">
+        <!-- 提着灯笼的线 -->
+        <div class="lantern-line"></div>
+        <!-- 灯笼主要区域 -->
+        <div class="lantern-light" :style="`--delay: ${index*0.7}s`">
+          <div class="lantern-circle">
+            <div class="lantern-rect">
+              <!-- 灯笼中间的文字内容 -->
+              <div class="lantern-text">{{item}}</div>
+            </div>
+          </div>
+          <!-- 灯笼穗 -->
+          <div class="lantern-tassel-top" :style="`--delay: ${index*0.7}s`">
+            <div class="lantern-tassel-middle"></div>
+            <div class="lantern-tassel-bottom"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="error-box"></div>
   <div class="bottom-bar">
@@ -60,5 +83,7 @@
     </a>&nbsp;|&nbsp;
     <a class="jump-a" href="http://component.wghuang.fun">组件仓库</a>
   </div>
+
+  
 </body>
 </html>
