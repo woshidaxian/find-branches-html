@@ -18,6 +18,10 @@
     <div class="content" :style="`--color1: ${color1};--color2: ${color2};--color3: ${color3}`">
       <img src="./static/image/warehouse_search.png" alt="" style="width: 40px;margin-left: 20px;">
       <input type="text" id="inp-search" placeholder="请输入分支名关键词查找" v-model="keyWord" @keyup.enter="search">
+      <select v-model="searchType" class="select-type">
+        <option :value="1">查大屏</option>
+        <option :value="2">查全部</option>
+      </select>
       <div class="btn" @click="search"> 搜索 </div>
     </div>
     <div class="load-box" v-show="isLoading">

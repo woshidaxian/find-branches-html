@@ -27,6 +27,7 @@ window.onload = function name(params) {
       color3: '',
       commitList: [],
       showCommitDetail: false,
+      searchType: 1
     },
     mounted() {
       this.color1 = this.randomColor();
@@ -56,7 +57,7 @@ window.onload = function name(params) {
           this.tableData = []
           axios.get(BASEURL + '/projectList', { params: { pageSize: 400, pageIndex: 1, projectName: '', keyWord: this.keyWord } }).then(res => {
             res.data.data.Data.ProjectList.forEach(item => {
-              if (item.DisplayName.indexOf('screen') != -1) {
+              if ((this.searchType == 1 && item.DisplayName.indexOf('screen') != -1) || this.searchType == 2) {
                 this.getDepotList(item.Id, item.DisplayName)
               }
             })
