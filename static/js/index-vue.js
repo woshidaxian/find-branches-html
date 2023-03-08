@@ -37,7 +37,6 @@ window.onload = function name(params) {
       c3 = c3.split(')')
       c3 = c3[0] + ',0.3)' + c3[1]
       this.color3 = c3
-      // new Date().toLocaleTimeString();
     },
     methods: {
       randomColor(){
