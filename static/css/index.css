@@ -79,7 +79,6 @@
   align-items: center;
   box-shadow: 0px 0px 3px #c4c4c4;
   transition: all 1s;
-  /* border: 1px solid var(--color3); */
   animation: fadeWidth 1s forwards;
   overflow: hidden;
   min-width: 560px;

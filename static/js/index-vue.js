@@ -24,7 +24,6 @@ window.onload = function name(params) {
       now: 0,
       color1: '',
       color2: '',
-      color3: '',
       commitList: [],
       showCommitDetail: false,
       searchType: 1
@@ -32,18 +31,13 @@ window.onload = function name(params) {
     mounted() {
       this.color1 = this.randomColor();
       this.color2 = this.randomColor();
-      let c3 = this.randomColor().split('(')
-      c3 = c3[0] + 'a(' + c3[1]
-      c3 = c3.split(')')
-      c3 = c3[0] + ',0.3)' + c3[1]
-      this.color3 = c3
     },
     methods: {
       randomColor(){
         let a = Math.round(Math.random() * 255)
         let b = Math.round(Math.random() * 255)
         let c = Math.round(Math.random() * 255)
-        return `rgb(${a}, ${b}, ${c})`
+        return `rgb(${a}, ${b}, ${c}, 0.6)`
       },
       search(){
         this.isEnd = false
